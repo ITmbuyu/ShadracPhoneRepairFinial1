@@ -1,0 +1,188 @@
+﻿@model ShadracPhoneRepairFinial1.Models.Request
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> roleManager
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+@if(SignInManager.IsSignedIn(User) && User.IsInRole("Customer"))
+{
+    <div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BrandName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BrandName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeviceProblem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeviceProblem.DeviceProblemId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeviceDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeviceDescription.DeviceDescriptionId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Storage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Storage.StorageId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Colour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Colour.ColourId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IMEI)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IMEI)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestDateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RequestDateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PaymentStatus.PaymentStatusId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CApprovalMessages)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CApprovalMessages.CApprovalMessagesId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApprovalMessages)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApprovalMessages.ApprovalMessagesId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserEmail)
+        </dd>*@
+    </dl>
+    </div>                  
+}
+
+<div>
+    <h4>Request</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BrandName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BrandName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeviceProblem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeviceProblem.DeviceProblemId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeviceDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeviceDescription.DeviceDescriptionId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Storage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Storage.StorageId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Colour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Colour.ColourId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IMEI)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IMEI)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestDateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RequestDateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PaymentStatus.PaymentStatusId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CApprovalMessages)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CApprovalMessages.CApprovalMessagesId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApprovalMessages)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApprovalMessages.ApprovalMessagesId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserEmail)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RequestId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

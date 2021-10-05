@@ -1,0 +1,76 @@
+﻿@model ShadracPhoneRepairFinial1.Models.Employee
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="form-body">
+        <form class="form-horizontal" data-toggle="validator" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmpName" class="control-label"></label>
+                <input asp-for="EmpName" class="form-control" />
+                <span asp-validation-for="EmpName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpSurname" class="control-label"></label>
+                <input asp-for="EmpSurname" class="form-control" />
+                <span asp-validation-for="EmpSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpEmail" class="control-label"></label>
+                <input asp-for="EmpEmail" class="form-control" />
+                <span asp-validation-for="EmpEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpPassword" class="control-label"></label>
+                <input asp-for="EmpPassword" class="form-control" />
+                <span asp-validation-for="EmpPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpRate" class="control-label"></label>
+                <input asp-for="EmpRate" class="form-control" />
+                <span asp-validation-for="EmpRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpHours" class="control-label"></label>
+                <input asp-for="EmpHours" class="form-control" />
+                <span asp-validation-for="EmpHours" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="EmpWage" class="control-label"></label>
+                <input asp-for="EmpWage" class="form-control" />
+                <span asp-validation-for="EmpWage" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="EmployeeRole" class="control-label"></label>
+                <input asp-for="EmployeeRole" class="form-control" />
+                <span asp-validation-for="EmployeeRole" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+              <label asp-for="EmployeeRole" class="control-label"></label>
+            <div class="col-md-10">
+            @Html.DropDownListFor(m => m.EmployeeRole, new SelectList(ViewBag.Roles, "Value", "Text"), new { @class = "form-control" })
+            </div>
+    </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ShadracPhoneRepairFinial1.Models.SupplierPart>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Parts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartSupplied_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartSupplied_Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parts.PartsId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.SupplierId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartSupplied_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartSupplied_Quantity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SupplierPartId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SupplierPartId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SupplierPartId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

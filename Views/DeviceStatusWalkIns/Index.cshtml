@@ -1,0 +1,126 @@
+﻿@model IEnumerable<ShadracPhoneRepairFinial1.Models.DeviceStatusWalkIns>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceProblem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IMEI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WalkInDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WalkInTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WalkInStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RepairStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechnicianId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovalOfCharge)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceProblem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IMEI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WalkInDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WalkInTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WalkInStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RepairStatus.RepairStatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TechnicianId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovalOfCharge)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TrackingNumber">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TrackingNumber">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TrackingNumber">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Human Resources</h1>
+
+<style>
+        button {
+            display: inline-block
+        }
+
+
+        #container {
+            text-align: center;
+        }
+    </style>
+    <div id="container">
+       
+        <button><a asp-controller="Employees" asp-action="Index" class="btn btn-primary btn-lg">View Employee  &raquo;</a></button>
+        <button><a asp-controller="Roles" asp-action="Index" class="btn btn-primary btn-lg">View Roles &raquo;</a></button>
+        <button><a asp-controller="WalkInTimes" asp-action="Index" class="btn btn-primary btn-lg">View Walk-Ins &raquo;</a></button>
+    </div>
+    

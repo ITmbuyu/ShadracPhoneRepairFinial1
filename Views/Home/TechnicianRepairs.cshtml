@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>View</h1>
+
+<style>
+        button {
+            display: inline-block
+        }
+
+
+        #container {
+            text-align: center;
+        }
+    </style>
+    <div id="container">
+        <button><a asp-controller="Requests" asp-action="Create" class="btn btn-primary btn-lg">Request Repair &raquo;</a></button>
+        <button><a asp-controller="WalkInRequests" asp-action="Create" class="btn btn-primary btn-lg">Book Walk-In &raquo;</a></button>
+        <button><a asp-controller="Requests" asp-action="Index" class="btn btn-primary btn-lg">View Requests &raquo;</a></button>
+        <button><a asp-controller="WalkInRequests" asp-action="Index" class="btn btn-primary btn-lg">View Walk-Ins &raquo;</a></button>
+    </div>
+    <div id="container">
+       
+        <button><a asp-controller="DeviceStatus" asp-action="Index" class="btn btn-primary btn-lg">Request Status Dashboard &raquo;</a></button>
+        <button><a asp-controller="DeviceStatusWalkIns" asp-action="Index" class="btn btn-primary btn-lg">Walk-Ins Status Dashboard &raquo;</a></button>
+    </div>

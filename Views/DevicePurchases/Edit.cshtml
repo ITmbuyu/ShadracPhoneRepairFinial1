@@ -1,0 +1,82 @@
+﻿@model ShadracPhoneRepairFinial1.Models.DevicePurchase
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>DevicePurchase</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DevicePurchaseId" />
+            <div class="form-group">
+                <label asp-for="DevicePicture" class="control-label"></label>
+                <input asp-for="DevicePicture" class="form-control" />
+                <span asp-validation-for="DevicePicture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceName" class="control-label"></label>
+                <input asp-for="DeviceName" class="form-control" />
+                <span asp-validation-for="DeviceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceBrand" class="control-label"></label>
+                <input asp-for="DeviceBrand" class="form-control" />
+                <span asp-validation-for="DeviceBrand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceColor" class="control-label"></label>
+                <input asp-for="DeviceColor" class="form-control" />
+                <span asp-validation-for="DeviceColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceRAM" class="control-label"></label>
+                <input asp-for="DeviceRAM" class="form-control" />
+                <span asp-validation-for="DeviceRAM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceROM" class="control-label"></label>
+                <input asp-for="DeviceROM" class="form-control" />
+                <span asp-validation-for="DeviceROM" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Devicestorage" class="control-label"></label>
+                <input asp-for="Devicestorage" class="form-control" />
+                <span asp-validation-for="Devicestorage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceCamera" class="control-label"></label>
+                <input asp-for="DeviceCamera" class="form-control" />
+                <span asp-validation-for="DeviceCamera" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceBattery" class="control-label"></label>
+                <input asp-for="DeviceBattery" class="form-control" />
+                <span asp-validation-for="DeviceBattery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceProcesser" class="control-label"></label>
+                <input asp-for="DeviceProcesser" class="form-control" />
+                <span asp-validation-for="DeviceProcesser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DevicePrice" class="control-label"></label>
+                <input asp-for="DevicePrice" class="form-control" />
+                <span asp-validation-for="DevicePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

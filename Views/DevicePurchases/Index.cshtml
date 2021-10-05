@@ -1,0 +1,101 @@
+﻿@model IEnumerable<ShadracPhoneRepairFinial1.Models.DevicePurchase>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table-responsive">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DevicePicture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceBrand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceColor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceRAM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceROM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Devicestorage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceCamera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceBattery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceProcesser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DevicePrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevicePicture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceBrand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceRAM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceROM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Devicestorage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceCamera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceBattery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceProcesser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevicePrice)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DevicePurchaseId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DevicePurchaseId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DevicePurchaseId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+		
+
+                                    

@@ -1,0 +1,239 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> roleManager
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>arcadia Website Template | Home :: w3layouts</title>
+    <link href="~/Temp CSS/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Temp CSS/Temp JS/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="~/Temp CSS/style.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <!-- Custom-Files -->
+	<link href="~/Commerce CSS/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- Bootstrap css -->
+	<link href="~/Commerce CSS/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- Main css -->
+	<link rel="stylesheet" href="~/Commerce CSS/css/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<link href="~/Commerce CSS/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- pop-up-box -->
+	<link href="~/Commerce CSS/css/menu.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- menu style -->
+    <!---- start-smoth-scrolling---->
+    <script type="text/javascript" src="~/Temp CSS/Temp JS/move-top.js"></script>
+    <script type="text/javascript" src="~/Temp CSS/Temp JS/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!---- start-smoth-scrolling---->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="Electro Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!-- webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+	    rel="stylesheet">
+    <!-- webfonts -->
+</head>
+<body>
+    <!-- header -->
+    <div id="totop" class="headerBlank">
+        <div class="container">
+            <!-- menu -->
+            <div class="menu">
+                <span class="menu-icon"> </span>
+                @*<ul>
+                    <li><a href="#services" class="scroll">services</a></li>
+                    <li><a href="#about" class="scroll">About</a></li>
+                    <li><a href="#contact" class="scroll">Contact</a></li>
+                    <li style="text-align:right"> @Html.Partial("_LoginPartial")</li>
+                    <div class="clearfix"> </div>
+                </ul>*@
+                @if(SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link text-dark">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="AdminHumanResources" class="nav-link text-dark">Human Resources</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="AdminPurchase" class="nav-link text-dark">Purchase</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="AdminRepairs" class="nav-link text-dark">Repairs</a></li>
+                    <li style="text-align:right"> @Html.Partial("_LoginPartial")</li>
+                }
+                @if(SignInManager.IsSignedIn(User) && User.IsInRole("Technician"))
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link text-dark">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="TechnicianRepairs" class="nav-link text-dark">Repairs</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="TechnicianDevices" class="nav-link text-dark">Devices</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="TechnicianPurchase" class="nav-link text-dark">Purchases</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="TechnicianTradeIn" class="nav-link text-dark">TradeIn</a></li>
+                    <li style="text-align:right"> @Html.Partial("_LoginPartial")</li>
+                }
+                @if(SignInManager.IsSignedIn(User) && User.IsInRole("Driver"))
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link text-dark">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="DriverDash" class="nav-link text-dark">Driver Dashboard</a></li>
+                    <li style="text-align:right"> @Html.Partial("_LoginPartial")</li>
+                }
+                @if(SignInManager.IsSignedIn(User) && User.IsInRole("Customer"))
+                {
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link text-dark">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="CustomerPurchase" class="nav-link text-dark">Customer Purchase</a></li>
+                   <li><a asp-area="" asp-controller="Home" asp-action="CustomerTradeIn" class="nav-link text-dark">Customer TradeIn</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="CustomerRepairs" class="nav-link text-dark">Customer Repairs</a></li>
+                    <li style="text-align:right"> @Html.Partial("_LoginPartial")</li>
+                }
+            </div>
+
+            @*<span class="menu-icon"> </span>
+                <ul>
+                    <li><a href="#services" class="scroll">services</a></li>
+                    <li><a href="#about" class="scroll">About</a></li>
+                    <li><a href="#contact" class="scroll">Contact</a></li>
+                    <div class="clearfix"> </div>
+                </ul>*@
+
+        </div>
+        <!-- /menu -->
+        <!-- script-for-menu -->
+        <script>
+            $(document).ready(function () {
+                $(".menu ul").hide();
+                $("span.menu-icon").click(function () {
+                    $(".menu ul").slideToggle(500);
+                });
+
+            });
+        </script>
+        <!-- /script-for-menu -->
+        <!-- header-info -->
+        <div style="text-align: center;">
+            <img src="~/Temp CSS/images\logo.png" alt="Flowers">
+
+        </div>
+
+    </div>
+
+    
+
+
+    <!-- clients -->
+    <div class="clients">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- clients -->
+    <!-- contact -->
+    <div id="contact" class="contact">
+        <div class="container">
+            <!-- head-section -->
+            <div class="head-section text-center">
+                <h2>Contact us</h2>
+                <span> </span>
+            </div>
+            <!-- /head-section -->
+            <!-- contact-grids -->
+            <div class="contact-grids">
+                <div class="col-md-4 contact-left">
+                    <h4>Address</h4>
+                    <ul class="address">
+                        <li>908 New Hampshire Ave NW </li>
+                        <li>Washington, DC 20037 </li>
+                        <li>(202) 463-5141 </li>
+                        <li>Doris Cannon</li>
+                    </ul>
+                    <ul class="social-icons">
+                        <li><a href="#"><span class="facebook"> </span></a></li>
+                        <li><a href="#"><span class="twitter"> </span></a></li>
+                        <li><a href="#"><span class="vimeo"> </span></a></li>
+                        <li><a href="#"><span class="behance"> </span></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-8 contact-right">
+                    <form>
+                        <div class="text-boxs">
+                            <div class="text-box">
+                                <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+                            </div>
+                            <div class="text-box">
+                                <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+                            </div>
+                            <div class="text-box">
+                                <input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}">
+                            </div>
+                            <div class="text-box">
+                                <input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+                            </div>
+                        </div>
+                        <div class="subject-box">
+                            <textarea>Message</textarea>
+                        </div>
+                        <input type="submit" value="Send" />
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!-- contact-grids -->
+        </div>
+    </div>
+    <!-- contact -->
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-left">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </div>
+            <div class="footer-right">
+                <p><a href="#totop" class="scroll">Back to top<span> </span></a></p>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        /*
+                        var defaults = {
+                                containerID: 'toTop', // fading element id
+                            containerHoverID: 'toTopHover', // fading element hover id
+                            scrollSpeed: 1200,
+                            easingType: 'linear'
+                            };
+                        */
+
+                        $().UItoTop({ easingType: 'easeOutQuart' });
+
+                    });
+                </script>
+                <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+            </div>
+
+        </div>
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>  
+</html>
+
+
+
+
+
+

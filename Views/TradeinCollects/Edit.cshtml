@@ -1,0 +1,87 @@
+﻿@model ShadracPhoneRepairFinial1.Models.TradeinCollect
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>TradeinCollect</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TradeinCollectId" />
+            <div class="form-group">
+                <label asp-for="TradeinNumber" class="control-label"></label>
+                <input asp-for="TradeinNumber" class="form-control" />
+                <span asp-validation-for="TradeinNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceDescriptionId" class="control-label"></label>
+                <select asp-for="DeviceDescriptionId" class="form-control" asp-items="ViewBag.DeviceDescriptionId"></select>
+                <span asp-validation-for="DeviceDescriptionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StorageId" class="control-label"></label>
+                <select asp-for="StorageId" class="form-control" asp-items="ViewBag.StorageId"></select>
+                <span asp-validation-for="StorageId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ColourId" class="control-label"></label>
+                <select asp-for="ColourId" class="form-control" asp-items="ViewBag.ColourId"></select>
+                <span asp-validation-for="ColourId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IMEI" class="control-label"></label>
+                <input asp-for="IMEI" class="form-control" />
+                <span asp-validation-for="IMEI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceCondition" class="control-label"></label>
+                <input asp-for="DeviceCondition" class="form-control" />
+                <span asp-validation-for="DeviceCondition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DevicePicture" class="control-label"></label>
+                <input asp-for="DevicePicture" class="form-control" />
+                <span asp-validation-for="DevicePicture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestDateTime" class="control-label"></label>
+                <input asp-for="RequestDateTime" class="form-control" />
+                <span asp-validation-for="RequestDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CApprovalMessagesId" class="control-label"></label>
+                <select asp-for="CApprovalMessagesId" class="form-control" asp-items="ViewBag.CApprovalMessagesId"></select>
+                <span asp-validation-for="CApprovalMessagesId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprovalMessagesId" class="control-label"></label>
+                <select asp-for="ApprovalMessagesId" class="form-control" asp-items="ViewBag.ApprovalMessagesId"></select>
+                <span asp-validation-for="ApprovalMessagesId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

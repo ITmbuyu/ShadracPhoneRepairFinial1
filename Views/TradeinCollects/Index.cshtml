@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ShadracPhoneRepairFinial1.Models.TradeinCollect>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TradeinNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Storage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Colour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IMEI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeviceCondition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DevicePicture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CApprovalMessages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApprovalMessages)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TradeinNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceDescription.DeviceDescriptionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Storage.StorageId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colour.ColourId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IMEI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceCondition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevicePicture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CApprovalMessages.CApprovalMessagesId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovalMessages.ApprovalMessagesId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TradeinCollectId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TradeinCollectId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TradeinCollectId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

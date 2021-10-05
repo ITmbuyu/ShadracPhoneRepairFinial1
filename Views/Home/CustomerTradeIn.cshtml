@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Trade-Ins</h1>
+
+<style>
+        button {
+            display: inline-block
+        }
+
+
+        #container {
+            text-align: center;
+        }
+    </style>
+    <div id="container">
+       
+         <button><a asp-controller="TradeinCollects" asp-action="Index" class="btn btn-primary btn-lg">View TradeIn Collects &raquo;</a></button>
+        <button><a asp-controller="TradeinDropOffs" asp-action="Index" class="btn btn-primary btn-lg">View TradeIn DropOffs &raquo;</a></button>
+    </div>

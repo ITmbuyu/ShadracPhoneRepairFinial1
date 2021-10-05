@@ -1,0 +1,37 @@
+﻿@model ShadracPhoneRepairFinial1.Models.Supplier
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Supplier</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Supplier_Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Supplier_Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Supplier_Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Supplier_Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Supplier_CellNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Supplier_CellNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SupplierId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

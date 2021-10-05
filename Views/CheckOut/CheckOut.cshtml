@@ -1,0 +1,294 @@
+﻿
+@{
+    ViewData["Title"] = "CheckOut";
+    Layout = "~/Views/Shared/CommerceLayout.cshtml";
+}
+
+<h1>CheckOut</h1>
+
+<div class="checkout-right">
+				<h4 class="mb-sm-4 mb-3">Your shopping cart contains:
+					<span>3 Products</span>
+				</h4>
+				<div class="table-responsive">
+					<table class="timetable_sub">
+						<thead>
+							<tr>
+								<th>SL No.</th>
+								<th>Product</th>
+								<th>Quality</th>
+								<th>Product Name</th>
+
+								<th>Price</th>
+								<th>Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="rem1">
+								<td class="invert">1</td>
+								<td class="invert-image">
+									<a href="single.html">
+										<img src="~/Commerce CSS/images/a.jpg" alt=" " class="img-responsive">
+									</a>
+								</td>
+								<td class="invert">
+									<div class="quantity">
+										<div class="quantity-select">
+											<div class="entry value-minus">&nbsp;</div>
+											<div class="entry value">
+												<span>1</span>
+											</div>
+											<div class="entry value-plus active">&nbsp;</div>
+										</div>
+									</div>
+								</td>
+								<td class="invert">Back Cover</td>
+								<td class="invert">$259</td>
+								<td class="invert">
+									<div class="rem">
+										<div class="close1"> </div>
+									</div>
+								</td>
+							</tr>
+							<tr class="rem2">
+								<td class="invert">2</td>
+								<td class="invert-image">
+									<a href="single2.html">
+										<img src="~/Commerce CSS/images/a4.jpg" alt=" " class="img-responsive">
+									</a>
+								</td>
+								<td class="invert">
+									<div class="quantity">
+										<div class="quantity-select">
+											<div class="entry value-minus">&nbsp;</div>
+											<div class="entry value">
+												<span>1</span>
+											</div>
+											<div class="entry value-plus active">&nbsp;</div>
+										</div>
+									</div>
+								</td>
+								<td class="invert">Cordless Trimmer</td>
+								<td class="invert">$1,999</td>
+								<td class="invert">
+									<div class="rem">
+										<div class="close2"> </div>
+									</div>
+								</td>
+							</tr>
+							<tr class="rem3">
+								<td class="invert">3</td>
+								<td class="invert-image">
+									<a href="single.html">
+										<img src="~/Commerce CSS/images/a3.jpg" alt=" " class="img-responsive">
+									</a>
+								</td>
+								<td class="invert">
+									<div class="quantity">
+										<div class="quantity-select">
+											<div class="entry value-minus">&nbsp;</div>
+											<div class="entry value">
+												<span>1</span>
+											</div>
+											<div class="entry value-plus active">&nbsp;</div>
+										</div>
+									</div>
+								</td>
+								<td class="invert">Nikon Camera</td>
+								<td class="invert">$37,490</td>
+								<td class="invert">
+									<div class="rem">
+										<div class="close3"> </div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="checkout-left">
+				<div class="address_form_agile mt-sm-5 mt-4">
+					<button class="submit check_out btn">Delivery to this Address</button>
+				</div>
+				<div class="checkout-right-basket">
+						<a href="payment.html">Make a Payment
+							<span class="far fa-hand-point-right"></span>
+						</a>
+			    </div>
+			</div>
+
+			<!-- js-files -->
+	<!-- jquery -->
+	<script src="~/Commerce CSS/js/jquery-2.2.3.min.js"></script>
+	<!-- //jquery -->
+
+	<!-- nav smooth scroll -->
+	<script>
+		$(document).ready(function () {
+			$(".dropdown").hover(
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function () {
+					$('.dropdown-menu', this).stop(true, true).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+			);
+		});
+	</script>
+	<!-- //nav smooth scroll -->
+
+	<!-- popup modal (for location)-->
+	<script src="~/Commerce CSS/js/jquery.magnific-popup.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.popup-with-zoom-anim').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
+
+		});
+	</script>
+	<!-- //popup modal (for location)-->
+
+	<!-- cart-js -->
+	<script src="~/Commerce CSS/js/minicart.js"></script>
+	<script>
+		paypals.minicarts.render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
+
+		paypals.minicarts.cart.on('checkout', function (evt) {
+			var items = this.items(),
+				len = items.length,
+				total = 0,
+				i;
+
+			// Count the number of each item in the cart
+			for (i = 0; i < len; i++) {
+				total += items[i].get('quantity');
+			}
+
+			if (total < 3) {
+				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+				evt.preventDefault();
+			}
+		});
+	</script>
+	<!-- //cart-js -->
+
+	<!-- password-script -->
+	<script>
+		window.onload = function () {
+			document.getElementById("password1").onchange = validatePassword;
+			document.getElementById("password2").onchange = validatePassword;
+		}
+
+		function validatePassword() {
+			var pass2 = document.getElementById("password2").value;
+			var pass1 = document.getElementById("password1").value;
+			if (pass1 != pass2)
+				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+			else
+				document.getElementById("password2").setCustomValidity('');
+			//empty string means no validation error
+		}
+	</script>
+	<!-- //password-script -->
+
+	<!-- quantity -->
+	<script>
+		$('.value-plus').on('click', function () {
+			var divUpd = $(this).parent().find('.value'),
+				newVal = parseInt(divUpd.text(), 10) + 1;
+			divUpd.text(newVal);
+		});
+
+		$('.value-minus').on('click', function () {
+			var divUpd = $(this).parent().find('.value'),
+				newVal = parseInt(divUpd.text(), 10) - 1;
+			if (newVal >= 1) divUpd.text(newVal);
+		});
+	</script>
+	<!--quantity-->
+	<script>
+		$(document).ready(function (c) {
+			$('.close1').on('click', function (c) {
+				$('.rem1').fadeOut('slow', function (c) {
+					$('.rem1').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function (c) {
+			$('.close2').on('click', function (c) {
+				$('.rem2').fadeOut('slow', function (c) {
+					$('.rem2').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function (c) {
+			$('.close3').on('click', function (c) {
+				$('.rem3').fadeOut('slow', function (c) {
+					$('.rem3').remove();
+				});
+			});
+		});
+	</script>
+	<!-- //quantity -->
+
+	<!-- smoothscroll -->
+	<script src="~/Commerce CSS/js/SmoothScroll.min.js"></script>
+	<!-- //smoothscroll -->
+
+	<!-- start-smooth-scrolling -->
+	<script src="~/Commerce CSS/js/move-top.js"></script>
+	<script src="~/Commerce CSS/js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smooth-scrolling -->
+
+	<!-- smooth-scrolling-of-move-up -->
+	<script>
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
+	</script>
+	<!-- //smooth-scrolling-of-move-up -->
+
+	<!-- for bootstrap working -->
+	<script src="~/Commerce CSS/js/bootstrap.js"></script>
+	<!-- //for bootstrap working -->
+	<!-- //js-files -->
+
+			
+			

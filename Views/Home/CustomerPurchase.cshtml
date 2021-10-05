@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Make Your Purchase</h1>
+
+<style>
+        button {
+            display: inline-block
+        }
+
+
+        #container {
+            text-align: center;
+        }
+    </style>
+    <div id="container">
+       
+        <button><a asp-controller="DevicePurchases" asp-action="Index" class="btn btn-primary btn-lg">Device Purchase &raquo;</a></button>
+        <button><a asp-controller="PartsPurchase" asp-action="DevicesIndex" class="btn btn-primary btn-lg">Parts Purchase &raquo;</a></button>
+    </div>

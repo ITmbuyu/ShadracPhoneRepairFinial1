@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Device Management</h1>
+
+<style>
+        button {
+            display: inline-block
+        }
+
+
+        #container {
+            text-align: center;
+        }
+    </style>
+    <div id="container">
+        <button><a asp-controller="Brands" asp-action="Create" class="btn btn-primary btn-lg">Device Brands &raquo;</a></button>
+        <button><a asp-controller="Colours" asp-action="Create" class="btn btn-primary btn-lg">Device Color  &raquo;</a></button>
+        <button><a asp-controller="DeviceDescriptions" asp-action="Index" class="btn btn-primary btn-lg">Device Description &raquo;</a></button>
+        <button><a asp-controller="DeviceProblems" asp-action="Index" class="btn btn-primary btn-lg">Device Problem &raquo;</a></button>
+        <button><a asp-controller="Parts" asp-action="Index" class="btn btn-primary btn-lg">Device Parts &raquo;</a></button>
+        <button><a asp-controller="Storages" asp-action="Index" class="btn btn-primary btn-lg">Device Storage &raquo;</a></button>
+        <button><a asp-controller="Home" asp-action="CustomerPurchase" class="btn btn-primary btn-lg">New Device</a></button>
+    </div>
+    
+   

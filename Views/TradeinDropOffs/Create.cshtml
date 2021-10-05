@@ -1,0 +1,85 @@
+﻿@model ShadracPhoneRepairFinial1.Models.TradeinDropOff
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TradeinDropOff</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TradeinNumber" class="control-label"></label>
+                <input asp-for="TradeinNumber" class="form-control" />
+                <span asp-validation-for="TradeinNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceDescriptionId" class="control-label"></label>
+                <select asp-for="DeviceDescriptionId" class ="form-control" asp-items="ViewBag.DeviceDescriptionId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StorageId" class="control-label"></label>
+                <select asp-for="StorageId" class ="form-control" asp-items="ViewBag.StorageId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ColourId" class="control-label"></label>
+                <select asp-for="ColourId" class ="form-control" asp-items="ViewBag.ColourId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IMEI" class="control-label"></label>
+                <input asp-for="IMEI" class="form-control" />
+                <span asp-validation-for="IMEI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceCondition" class="control-label"></label>
+                <input asp-for="DeviceCondition" class="form-control" />
+                <span asp-validation-for="DeviceCondition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestDateTime" class="control-label"></label>
+                <input asp-for="RequestDateTime" class="form-control" />
+                <span asp-validation-for="RequestDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WalkInDate" class="control-label"></label>
+                <input asp-for="WalkInDate" class="form-control" />
+                <span asp-validation-for="WalkInDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WalkInTimesId" class="control-label"></label>
+                <select asp-for="WalkInTimesId" class ="form-control" asp-items="ViewBag.WalkInTimesId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CApprovalMessagesId" class="control-label"></label>
+                <select asp-for="CApprovalMessagesId" class ="form-control" asp-items="ViewBag.CApprovalMessagesId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprovalMessagesId" class="control-label"></label>
+                <select asp-for="ApprovalMessagesId" class ="form-control" asp-items="ViewBag.ApprovalMessagesId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

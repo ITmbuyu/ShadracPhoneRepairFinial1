@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Driver Dashboard</h1>
+
+<style>
+        button {
+            display: inline-block
+        }
+
+
+        #container {
+            text-align: center;
+        }
+    </style>
+     <div id="container">
+        <button><a asp-controller="PartsCollections" asp-action="Index" class="btn btn-primary btn-lg">Collect Parts &raquo;</a></button>
+        <button><a asp-controller="TradeinCollects" asp-action="Index" class="btn btn-primary btn-lg">Collect Devices &raquo;</a></button>
+        <button><a asp-controller="Requests" asp-action="Index" class="btn btn-primary btn-lg">View Requests &raquo;</a></button>
+        <button><a  class="btn btn-primary btn-lg">View Payments &raquo;</a></button>
+    </div>

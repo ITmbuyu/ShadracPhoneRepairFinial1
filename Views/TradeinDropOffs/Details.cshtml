@@ -1,0 +1,97 @@
+﻿@model ShadracPhoneRepairFinial1.Models.TradeinDropOff
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TradeinDropOff</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TradeinNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TradeinNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeviceDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeviceDescription.DeviceDescriptionId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Storage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Storage.StorageId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Colour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Colour.ColourId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IMEI)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IMEI)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeviceCondition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeviceCondition)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestDateTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RequestDateTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WalkInDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WalkInDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WalkInTimes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WalkInTimes.WalkInTimesId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CApprovalMessages)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CApprovalMessages.CApprovalMessagesId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApprovalMessages)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApprovalMessages.ApprovalMessagesId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TradeinDropOffId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

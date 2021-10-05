@@ -1,0 +1,49 @@
+﻿@model ShadracPhoneRepairFinial1.Models.PartsCollection
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PartsCollection</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PartName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PartName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quaunity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quaunity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Supplier)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Supplier)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SupplierAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SupplierAddress)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PartsCollectionId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

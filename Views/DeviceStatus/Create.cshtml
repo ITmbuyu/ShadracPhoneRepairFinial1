@@ -1,0 +1,100 @@
+﻿@model ShadracPhoneRepairFinial1.Models.DeviceStatus
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/BlankLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>DeviceStatus</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TrackingNumber" class="control-label"></label>
+                <input asp-for="TrackingNumber" class="form-control" />
+                <span asp-validation-for="TrackingNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceProblem" class="control-label"></label>
+                <input asp-for="DeviceProblem" class="form-control" />
+                <span asp-validation-for="DeviceProblem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceName" class="control-label"></label>
+                <input asp-for="DeviceName" class="form-control" />
+                <span asp-validation-for="DeviceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label"></label>
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Colour" class="control-label"></label>
+                <input asp-for="Colour" class="form-control" />
+                <span asp-validation-for="Colour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IMEI" class="control-label"></label>
+                <input asp-for="IMEI" class="form-control" />
+                <span asp-validation-for="IMEI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairStatusId" class="control-label"></label>
+                <select asp-for="RepairStatusId" class ="form-control" asp-items="ViewBag.RepairStatusId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentStatus" class="control-label"></label>
+                <input asp-for="PaymentStatus" class="form-control" />
+                <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestDateTime" class="control-label"></label>
+                <input asp-for="RequestDateTime" class="form-control" />
+                <span asp-validation-for="RequestDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TechnicianId" class="control-label"></label>
+                <input asp-for="TechnicianId" class="form-control" />
+                <span asp-validation-for="TechnicianId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprovalOfRequest" class="control-label"></label>
+                <input asp-for="ApprovalOfRequest" class="form-control" />
+                <span asp-validation-for="ApprovalOfRequest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApprovalOfCharge" class="control-label"></label>
+                <input asp-for="ApprovalOfCharge" class="form-control" />
+                <span asp-validation-for="ApprovalOfCharge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
