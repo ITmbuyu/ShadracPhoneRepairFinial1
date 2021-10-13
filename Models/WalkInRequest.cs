@@ -67,6 +67,14 @@ namespace ShadracPhoneRepairFinial1.Models
 
         public string UserEmail { get; set; }
 
+        public string DeviceProblems { get; set; }
+
+        public string DeviceNames { get; set; }
+
+        public string DeviceCapacity { get; set; }
+
+        public string DeviceColors { get; set; }
+
 
         //public double CalcPrice()
         //{

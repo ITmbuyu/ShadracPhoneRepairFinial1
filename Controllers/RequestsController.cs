@@ -94,9 +94,24 @@ namespace ShadracPhoneRepairFinial1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("RequestId,BrandName,DeviceProblemId,DeviceDescriptionId,StorageId,ColourId,IMEI,Price,RequestDateTime,UserId,PaymentStatusId,CApprovalMessagesId,ApprovalMessagesId,UserEmail")] Request request)
         {
+            var brandid = (from ds in _context.DeviceDescriptions where ds.DeviceDescriptionId == request.DeviceDescriptionId select ds.BrandId).FirstOrDefault();
+            var brandname = (from b in _context.Brands where b.BrandId == brandid select b.BrandName).FirstOrDefault();
+            var deviceproblemid = (from ds in _context.DeviceProblems where ds.DeviceProblemId == request.DeviceProblemId select ds.DeviceProblemId).FirstOrDefault();
+            var deviceproblem = (from b in _context.DeviceProblems where b.DeviceProblemId == deviceproblemid select b.Description).FirstOrDefault();
+            var devicestorageid = (from ds in _context.Storage where ds.StorageId == request.StorageId select ds.StorageId).FirstOrDefault();
+            var devicestorage = (from b in _context.Storage where b.StorageId == devicestorageid select b.StorageCapacity).FirstOrDefault();
+            var devicecolorid = (from ds in _context.Colours where ds.ColourId == request.ColourId select ds.ColourId).FirstOrDefault();
+            var devicecolor = (from b in _context.Colours where b.ColourId == devicecolorid select b.Name).FirstOrDefault();
+            var devicename = (from b in _context.DeviceDescriptions where b.DeviceDescriptionId == brandid select b.DeviceName).FirstOrDefault();
             if (ModelState.IsValid)
             {
-                request.BrandName = _context.DeviceDescriptions.Find(request.DeviceDescriptionId).Brand.BrandName;
+
+                // request.BrandName = _context.DeviceDescriptions.Find(request.DeviceDescriptionId).Brand.BrandName;
+                request.BrandName = brandname;
+                request.DeviceColors = devicecolor;
+                request.DeviceProblems = deviceproblem;
+                request.DeviceCapacity = devicestorage;
+                request.DeviceNames = devicename;
                 request.RequestDateTime = DateTime.Now;
                 request.UserEmail = User.Identity.Name;
                 request.Price = 0;
@@ -110,11 +125,15 @@ namespace ShadracPhoneRepairFinial1.Controllers
                 DeviceStatus status = new DeviceStatus();
                 status.TrackingNumber = "STR" + Convert.ToString(request.RequestId);
                 status.Brand = request.BrandName;
-                status.DeviceProblem = _context.DeviceProblems.Find(request.DeviceProblemId).Description;//request.DeviceProblem.Description;
-                status.DeviceName = request.DeviceDescription.DeviceName;
+                //status.DeviceProblem = _context.DeviceProblems.Find(request.DeviceProblemId).Description;//request.DeviceProblem.Description;
+                status.DeviceProblem = deviceproblem;
+                //status.DeviceName = request.DeviceDescription.DeviceName;
+                status.DeviceName = devicename;
                 //variable name=  databaseinstance.find(primarykeyofrespectivetable).itemlookingfor
-                status.Capacity = _context.Storage.Find(request.StorageId).StorageCapacity;
-                status.Colour = _context.Colours.Find(request.ColourId).Name;
+                //status.Capacity = _context.Storage.Find(request.StorageId).StorageCapacity;
+                status.Capacity = devicestorage;
+                //status.Colour = _context.Colours.Find(request.ColourId).Name;
+                status.Colour = devicecolor;
                 status.IMEI = request.IMEI;
                 status.Price = request.Price;
                 status.PaymentStatus = _context.PaymentStatus.Find(request.PaymentStatusId).Status;
@@ -125,7 +144,7 @@ namespace ShadracPhoneRepairFinial1.Controllers
                 status.ApprovalOfRequest = _context.ApprovalMessages.Find(request.ApprovalMessagesId).AMessages;
                 //status.StatusId = 1;
                 _context.DeviceStatuses.Add(status);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 SendEmail(request, status);
                 return RedirectToAction("details", new { id = request.RequestId });
             }
@@ -150,13 +169,13 @@ namespace ShadracPhoneRepairFinial1.Controllers
                 $"Your Tracking Number is: {status.TrackingNumber} \n" +
                 $"Your Request Number is: {request.RequestId} \n" +
                 $"Your Device Brand is: {request.BrandName} \n" +
-                $"Your Device Name is: {request.DeviceDescription.DeviceName} \n" +
-                $"Your Device Storage is: {_context.Storage.Find(request.StorageId).StorageCapacity} \n" +
-                $"Colour Of Device is: { _context.Colours.Find(request.ColourId).Name} \n" +
+                $"Your Device Name is: {request.DeviceNames} \n" +
+                $"Your Device Storage is: {request.DeviceCapacity} \n" +
+                $"Colour Of Device is: { request.DeviceColors} \n" +
                 $"Device IMEI Number is: {request.IMEI} \n" +
-                $"Problem with device: {_context.DeviceProblems.Find(request.DeviceProblemId).Description} \n" +
+                $"Problem with device: {request.DeviceProblems} \n" +
                 $"Price of repair R: {request.Price} \n\n" +
-                $"Driver is on the way to pick up your device, please check dashboard for status of repair \n\n" +
+                $"Please check dashboard for status of repair and to see qotation. Please apporove or reject qoutation \n\n" +
                 $"Kind Regards";
 
             // Sendemail
@@ -170,8 +189,8 @@ namespace ShadracPhoneRepairFinial1.Controllers
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
-                EnableSsl = false,
-                // enable = true,
+               // EnableSsl = false,
+                EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(senderEmail.Address, password)
@@ -228,7 +247,7 @@ namespace ShadracPhoneRepairFinial1.Controllers
                 try
                 {
                     _context.Update(request);
-                    await _context.SaveChangesAsync();
+                     _context.SaveChanges();
                     DeviceStatus status = new DeviceStatus();
                     if (User.Identity.IsAuthenticated)
                     {
@@ -236,7 +255,7 @@ namespace ShadracPhoneRepairFinial1.Controllers
                         {
                             status.ApprovalOfCharge = _context.CApprovalMessages.Find(request.CApprovalMessagesId).CMessages;
                             status.ApprovalOfRequest = _context.ApprovalMessages.Find(request.ApprovalMessagesId).AMessages;
-                            _context.DeviceStatuses.Add(status);
+                            _context.DeviceStatuses.Add(status) ;
                             _context.SaveChanges();
 
                             if ((request.CApprovalMessagesId == 3))
@@ -320,8 +339,8 @@ namespace ShadracPhoneRepairFinial1.Controllers
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
-                EnableSsl = false,
-                // enable = true,
+                // EnableSsl = false,
+                EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(senderEmail.Address, password)
@@ -369,8 +388,8 @@ namespace ShadracPhoneRepairFinial1.Controllers
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
-                EnableSsl = false,
-                // enable = true,
+               // EnableSsl = false,
+                EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(senderEmail.Address, password)
@@ -418,8 +437,8 @@ namespace ShadracPhoneRepairFinial1.Controllers
             {
                 Host = "smtp.gmail.com",
                 Port = 587,
-                EnableSsl = false,
-                // enable = true,
+                //  EnableSsl = false,
+                EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(senderEmail.Address, password)

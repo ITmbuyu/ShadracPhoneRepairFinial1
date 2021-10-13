@@ -74,10 +74,30 @@
                 <label asp-for="UserEmail" class="control-label"></label>
                 <input asp-for="UserEmail" class="form-control" />
                 <span asp-validation-for="UserEmail" class="text-danger"></span>
-            </div>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceProblems" class="control-label"></label>
+                <input asp-for="DeviceProblems" class="form-control" />
+                <span asp-validation-for="DeviceProblems" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceNames" class="control-label"></label>
+                <input asp-for="DeviceNames" class="form-control" />
+                <span asp-validation-for="DeviceNames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceCapacity" class="control-label"></label>
+                <input asp-for="DeviceCapacity" class="form-control" />
+                <span asp-validation-for="DeviceCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceColors" class="control-label"></label>
+                <input asp-for="DeviceColors" class="form-control" />
+                <span asp-validation-for="DeviceColors" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            </div>*@
         </form>
     </div>
 </div>
@@ -86,3 +106,6 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

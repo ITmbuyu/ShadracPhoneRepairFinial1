@@ -10,23 +10,25 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+
+
+<table class="timetable_sub">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.BrandName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeviceProblem)
+                @Html.DisplayNameFor(model => model.DeviceProblems)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeviceDescription)
+                @Html.DisplayNameFor(model => model.DeviceNames)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Storage)
+                @Html.DisplayNameFor(model => model.DeviceCapacity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Colour)
+                @Html.DisplayNameFor(model => model.DeviceColors)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IMEI)
@@ -52,6 +54,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.UserEmail)
             </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -62,16 +65,16 @@
                 @Html.DisplayFor(modelItem => item.BrandName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DeviceProblem.DeviceProblemId)
+                @Html.DisplayFor(modelItem => item.DeviceProblems)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DeviceDescription.DeviceDescriptionId)
+                @Html.DisplayFor(modelItem => item.DeviceNames)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Storage.StorageId)
+                @Html.DisplayFor(modelItem => item.DeviceCapacity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Colour.ColourId)
+                @Html.DisplayFor(modelItem => item.DeviceColors)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IMEI)
@@ -104,5 +107,6 @@
             </td>
         </tr>
 }
+
     </tbody>
 </table>
